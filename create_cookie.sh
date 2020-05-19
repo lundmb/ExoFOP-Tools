@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #source ExoFOP_info.txt
-source ExoFOP_testing_info.txt
+source $1
+#source ExoFOP_testing_info.txt
 ## sourced file needs to contain the following:
 ## username=[username]
 ## password=[password]
