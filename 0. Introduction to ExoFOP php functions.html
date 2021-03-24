@@ -13089,10 +13089,21 @@ div#notebook {
 </li>
 </ul>
 <p>Some of these php scripts already have been incorporated into Python functions that have been developed to make these more quickly accessible or to perform more complicated operations. These will be explained in additional notebooks and allow for quicker integration into Python.</p>
-<h3 id="Accessing-proprietary-period-data">Accessing proprietary period data<a class="anchor-link" href="#Accessing-proprietary-period-data">&#182;</a></h3><p>User-submitted data may stipulate a 12-month proprietary period when it is uploaded. This data requires a cookie to be generated first. This can be done using curl:</p>
+<h3 id="Accessing-proprietary-period-data">Accessing proprietary period data<a class="anchor-link" href="#Accessing-proprietary-period-data">&#182;</a></h3><p>The ExoFOP enables users to upload data with a 12-month proprietary period as part of the TESS Follow-up Observation Program Working Group (TFOPWG).  If you are a member of that group and wish to access that data, you must log on to ExoFOP.<br>
+The php functions, which are URL calls, can be called as part of a curl or wget script if the use logs in and the login is saved as a cookie which is passed as part of the curl or wget call.<br>
+Here is an example of how to do this with curl and wget.</p>
+<p>Create and save the cookie.<br>
+wget:</p>
+
+<pre><code>wget --keep-session-cookies --save-cookies ./mycookie.txt --post-data "username=username&amp;password=password&amp;ref=login_user&amp;ref_page=/tess/" "https://exofop.ipac.caltech.edu/tess/password_check.php"</code></pre>
+<p>curl:</p>
 
 <pre><code>curl -b ./mycookie.txt -c ./mycookie.txt --data "username=myusername&amp;password=mypassword&amp;ref=login_user&amp;ref_page=/tess/" https://exofop.ipac.caltech.edu/tess/password_check.php</code></pre>
-<p>This cookie can then be included in the call of the php function:</p>
+<p>Load the cookie to pass the login information.<br>
+wget:</p>
+
+<pre><code>wget --load-cookies ./mycookie.txt  [php call]</code></pre>
+<p>curl:</p>
 
 <pre><code>curl -b ./mycookie.txt [php call]</code></pre>
 
