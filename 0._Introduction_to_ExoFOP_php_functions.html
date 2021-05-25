@@ -13138,6 +13138,41 @@ Sets output format, default is 'text'</p>
 Downloads composite text file of ExoFOP page</p>
 <p>Sample call:<br>
 <a href="https://exofop.ipac.caltech.edu/tess/download_target.php?id=278683844">https://exofop.ipac.caltech.edu/tess/download_target.php?id=278683844</a></p>
+<p>__</p>
+<p>gototicid?target=[target_name]<br>
+Provides a redirect to the target overview page given the name of a target. If there are multiple TIC IDs that match to a planet name, then will provide a table to interactively select which TIC overview page to go to. An error is returned if there is no TIC found associated with that name.</p>
+<p>Sample call:<br>
+<a href="https://exofop.ipac.caltech.edu/tess/gototicid.php?target=Kepler-633">https://exofop.ipac.caltech.edu/tess/gototicid.php?target=Kepler-633</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="User-Upload-Counts">User Upload Counts<a class="anchor-link" href="#User-Upload-Counts">&#182;</a></h3><p>User Uploads consist of all contributions directly from the community (user-submitted parameters, files, observations, and notes). This does not include stellar and planetary parameters that are provided by the TESS mission or are fetched from the Exoplanet Archive.</p>
+<p>__</p>
+<p>view_uploads.php<br>
+View number of user-uploaded contributions in each contribution category: Time Series Observations, Spectroscopy Observations, Imaging Observations, Files, Observation Notes, Stellar Parameters, Stellar Companions, and Planet Parameters. If a given target has multiple TIC IDs associated with it, then data will be provided for each TIC.</p>
+<p>Required term (one of the following):<br>
+target=[nnnnnnnnn] TIC ID<br>
+target=TOI[nnn] TOI<br>
+target=[star_name] name of target</p>
+<p>Sample calls:<br>
+<a href="https://exofop.ipac.caltech.edu/tess/view_uploads.php?target=Kepler-633">https://exofop.ipac.caltech.edu/tess/view_uploads.php?target=Kepler-633</a><br>
+<a href="https://exofop.ipac.caltech.edu/tess/view_uploads.php?target=138969239">https://exofop.ipac.caltech.edu/tess/view_uploads.php?target=138969239</a></p>
+<p>__</p>
+<p>download_uploads.php<br>
+Download number of user-uploaded contributions in each contribution category: Time Series Observations, Spectroscopy Observations, Imaging Observations, Files, Observation Notes, Stellar Parameters, Stellar Companions, and Planet Parameters. If a given target has multiple TIC IDs associated with it, then data will be provided for each TIC.</p>
+<p>Required term (one of the following):<br>
+target=[nnnnnnnnn] TIC ID<br>
+target=TOI[nnn] TOI<br>
+target=[star_name] name of target</p>
+<p>Optional term=[text|csv|pipe]<br>
+text is default option</p>
+<p>Sample calls:<br>
+<a href="https://exofop.ipac.caltech.edu/tess/download_uploads.php?target=Kepler-633">https://exofop.ipac.caltech.edu/tess/download_uploads.php?target=Kepler-633</a><br>
+<a href="https://exofop.ipac.caltech.edu/tess/download_uploads.php?target=138969239">https://exofop.ipac.caltech.edu/tess/download_uploads.php?target=138969239</a></p>
 
 </div>
 </div>
