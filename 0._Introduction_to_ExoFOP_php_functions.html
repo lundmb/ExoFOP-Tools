@@ -13163,7 +13163,7 @@ target=[star_name] name of target</p>
 <a href="https://exofop.ipac.caltech.edu/tess/view_uploads.php?target=138969239">https://exofop.ipac.caltech.edu/tess/view_uploads.php?target=138969239</a></p>
 <p>__</p>
 <p>download_uploads.php<br>
-Download number of user-uploaded contributions in each contribution category: Time Series Observations, Spectroscopy Observations, Imaging Observations, Files, Observation Notes, Stellar Parameters, Stellar Companions, and Planet Parameters. If a given target has multiple TIC IDs associated with it, then data will be provided for each TIC.</p>
+Download number of user-uploaded contributions in each contribution category: Time Series Observations, Spectroscopy Observations, Imaging Observations, Files, Observation Notes, Stellar Parameters, Stellar Companion Parameters, and Planet Parameters. If a given target has multiple TIC IDs associated with it, then data will be provided for each TIC.</p>
 <p>Required term (one of the following):<br>
 target=[nnnnnnnnn] TIC ID<br>
 target=TOI[nnn] TOI<br>
@@ -13247,6 +13247,8 @@ output=[text|csv|pipe]<br>
 text is default option</p>
 <p>sort=[column]<br>
 Available columns to sort by: id (TIC ID, default sort), tel, inst, filt, pix, imagetype, psf, cont, date, tag, notes, user, group</p>
+<p>target=[nnnnnnnnn|TOInnn|TOInnn.nn|name]<br>
+Available options are TIC ID, TOI name (including TOI prefix), or a planet name recognized by the Exoplanet Archive</p>
 <p>Sample call:<br>
 <a href="https://exofop.ipac.caltech.edu/tess/download_imaging.php?output=pipe&amp;sort=user">https://exofop.ipac.caltech.edu/tess/download_imaging.php?output=pipe&amp;sort=user</a></p>
 <p>__</p>
@@ -13277,6 +13279,8 @@ output=[text|csv|pipe]<br>
 text is default option</p>
 <p>sort=[column]<br>
 Available columns to sort by: id (TIC ID, default sort), tel, inst, res, cov, snrres, snrwave, prv, date, tag, notes, user, group</p>
+<p>target=[nnnnnnnnn|TOInnn|TOInnn.nn|name]<br>
+Available options are TIC ID, TOI name (including TOI prefix), or a planet name recognized by the Exoplanet Archive</p>
 <p>Sample call:<br>
 <a href="https://exofop.ipac.caltech.edu/tess/download_spect.php?output=pipe&amp;sort=user">https://exofop.ipac.caltech.edu/tess/download_spect.php?output=pipe&amp;sort=user</a><br>
 __</p>
@@ -13307,6 +13311,8 @@ output=[text|csv|pipe]<br>
 text is default option</p>
 <p>sort=[column]<br>
 Available columns to sort by: id (TIC ID, default sort), tel, camera, filt, pix, psf, photaprad, date, transcov, deltamag, tag, notes, user, group</p>
+<p>target=[nnnnnnnnn|TOInnn|TOInnn.nn|name]<br>
+Available options are TIC ID, TOI name (including TOI prefix), or a planet name recognized by the Exoplanet Archive</p>
 <p>Sample call:<br>
 <a href="https://exofop.ipac.caltech.edu/tess/download_tseries.php?output=pipe&amp;sort=user">https://exofop.ipac.caltech.edu/tess/download_tseries.php?output=pipe&amp;sort=user</a></p>
 <p>–</p>
@@ -13384,6 +13390,8 @@ output=[text|csv|pipe]<br>
 text is default option</p>
 <p>sort=[column]
 Available columns to sort by: id (TIC ID, default sort), lastmod (descending)</p>
+<p>target=[nnnnnnnnn|TOInnn|TOInnn.nn|name]<br>
+Available options are TIC ID, TOI name (including TOI prefix), or a planet name recognized by the Exoplanet Archive</p>
 <p>Sample call:<br>
 <a href="https://exofop.ipac.caltech.edu/tess/download_stellarcomp.php?output=pipe">https://exofop.ipac.caltech.edu/tess/download_stellarcomp.php?output=pipe</a></p>
 
