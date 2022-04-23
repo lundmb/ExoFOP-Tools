@@ -13077,7 +13077,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="ExoFOP-TESS-php-scripts">ExoFOP-TESS php scripts<a class="anchor-link" href="#ExoFOP-TESS-php-scripts">&#182;</a></h1><p>A number of php scripts are available for more easily accessing data. Broadly, these can be separated into those that that will download files and those that will return text. Summaries of scripts are presented below, and the path for all scripts begins with "<a href="https://exofop.ipac.caltech.edu/tess/">https://exofop.ipac.caltech.edu/tess/</a>"</p>
+<h1 id="ExoFOP-download-php-scripts">ExoFOP download php scripts<a class="anchor-link" href="#ExoFOP-download-php-scripts">&#182;</a></h1><p>A number of php scripts are available for more easily accessing data. Broadly, these can be separated into those that that will download files and those that will return text. Summaries of scripts are presented below, and the path for all scripts begins with "<a href="https://exofop.ipac.caltech.edu/tess/">https://exofop.ipac.caltech.edu/tess/</a>"</p>
 <p>Some php scripts have additional terms that may be used. For a php call with additional parameters, a question mark follows '.php' and is followed by the first parameter. In the case of multiple parameters, these should be separated by '&amp;'.</p>
 <p>For those that return text, there are a few formatting options that may be available. They are described here, and each entry will note which of these options is available.</p>
 <ul>
@@ -13113,6 +13113,42 @@ wget:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Target-Overview">Target Overview<a class="anchor-link" href="#Target-Overview">&#182;</a></h3><p>__</p>
+<p>gototicid.php?target=[target_name]<br>
+Provides a redirect to the target overview page given the name of a target. If there are multiple TIC IDs that match to a planet name, then will provide a table to interactively select which TIC overview page to go to. An error is returned if there is no TIC found associated with that name.</p>
+<p>Required term:
+target=[target_name]</p>
+<p>Sample call:<br>
+<a href="https://exofop.ipac.caltech.edu/tess/gototicid.php?target=Kepler-633">https://exofop.ipac.caltech.edu/tess/gototicid.php?target=Kepler-633</a></p>
+<p>Optional term:<br>
+json</p>
+<p>Optional term will return a JSON structure with the following fields if the target is found and has a match</p>
+<blockquote><p>{<br>
+    "status": "OK",<br>
+    "num": 1,<br>
+    "TIC": "138969239"<br>
+}</p>
+</blockquote>
+<p>If there is no match, or if the target is not recognized, will return the following fields:</p>
+<blockquote><p>{<br>
+    "status": "ERROR",<br>
+    "message": "No object found."<br>
+}</p>
+</blockquote>
+<p>Sample call:<br>
+<a href="https://exofop.ipac.caltech.edu/tess/gototicid.php?target=Kepler-633&amp;json">https://exofop.ipac.caltech.edu/tess/gototicid.php?target=Kepler-633&amp;json</a></p>
+<p>__</p>
+<p>download_target.php?id=[nnnnnnnnn]<br>
+Downloads composite text file of ExoFOP page</p>
+<p>Sample call:<br>
+<a href="https://exofop.ipac.caltech.edu/tess/download_target.php?id=278683844">https://exofop.ipac.caltech.edu/tess/download_target.php?id=278683844</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="TOI">TOI<a class="anchor-link" href="#TOI">&#182;</a></h3><p>__</p>
 <p>download_toi.php<br>
 Accesses the full TOI table from <a href="https://exofop.ipac.caltech.edu/tess/view_toi.php">https://exofop.ipac.caltech.edu/tess/view_toi.php</a></p>
@@ -13121,7 +13157,7 @@ toi=[nnn]<br>
 Accesses a single TOI from the TOI table</p>
 <p>sort=[column]<br>
 Available columns to sort by: 
-tid, toidesc, toi, toiasc, master, sg1a, sg1b, sg2, sg3, sg4, sg5, acwg, tmag, planetrad, planetname, planetnum, planetinsol, planetteq, planetsnr, disposition, tfopwgdisp, source, ra, dec, pmra, pmdec, epoch, period, duration, depth, distance, teff, logg, rad, metallicity, sectors, toi_alerted, toi_edited, lastmod (default search)</p>
+tid, toidesc, toi, toiasc, master, sg1a, sg1b, sg2, sg3, sg4, sg5, acwg, tmag, planetrad, planetname, planetnum, planetinsol, planetteq, planetsnr, disposition, tfopwgdisp, source, ra, dec, pmra, pmdec, epoch, period, duration, depth, distance, teff, logg, rad, metallicity, sectors, toi_alerted, toi_edited, lastmod (default sort)</p>
 <p>output=[text|csv|pipe]<br>
 Sets output format, default is 'text'</p>
 <p>Sample call:<br>
@@ -13133,16 +13169,73 @@ Sets output format, default is 'text'</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Target-Overview">Target Overview<a class="anchor-link" href="#Target-Overview">&#182;</a></h3><p>__</p>
-<p>download_target.php?id=[nnnnnnnnn]<br>
-Downloads composite text file of ExoFOP page</p>
+<h3 id="CTOI">CTOI<a class="anchor-link" href="#CTOI">&#182;</a></h3><p>__</p>
+<p>download_ctoi.php<br>
+Accesses the full CTOI table from <a href="https://exofop.ipac.caltech.edu/tess/view_ctoi.php">https://exofop.ipac.caltech.edu/tess/view_ctoi.php</a></p>
+<p>Optional terms:<br>
+ctoi=[nnn]<br>
+Accesses a single CTOI from the CTOI table</p>
+<p>sort=[column]<br>
+Available columns to sort by:<br>
+ctoi, ctoidesc, created</p>
+<p>output=[text|csv|pipe]<br>
+Sets output format, default is 'text'</p>
 <p>Sample call:<br>
-<a href="https://exofop.ipac.caltech.edu/tess/download_target.php?id=278683844">https://exofop.ipac.caltech.edu/tess/download_target.php?id=278683844</a></p>
+<a href="https://exofop.ipac.caltech.edu/tess/download_ctoi?ctoi=17361&amp;output=pipe">https://exofop.ipac.caltech.edu/tess/download_ctoi?ctoi=17361&amp;output=pipe</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="KOI">KOI<a class="anchor-link" href="#KOI">&#182;</a></h3><p>__</p>
+<p>download_koi.php<br>
+Accesses the full KOI table from <a href="https://exofop.ipac.caltech.edu/tess/view_koi.php">https://exofop.ipac.caltech.edu/tess/view_koi.php</a></p>
+<p>Optional terms:<br>
+sort=[column]<br>
+Available columns to sort by: 
+tid, toi, koi (default sort), kic, koidisp, epoch, period, depth, duration, radius, teq, insol, inc, rpr, dens, sma, kepname, ra, dec, tessmag</p>
+<p>output=[text|csv|pipe]<br>
+Sets output format, default is 'text'</p>
+<p>Sample call:<br>
+<a href="https://exofop.ipac.caltech.edu/tess/download_koi.php?sort=koi&amp;output=pipe">https://exofop.ipac.caltech.edu/tess/download_koi.php?sort=koi&amp;output=pipe</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Download-Parameters">Download Parameters<a class="anchor-link" href="#Download-Parameters">&#182;</a></h3><p>__</p>
+<p>download_stellar.php<br>
+Download all stellar parameters for a single target in a pipe-delimited format.<br>
+Includes a column called 'Table' that indicates which source a parameter is from:</p>
+<blockquote><p>TIC = from TESS Input Catalog<br>
+ TOI = from mission-provided TOIs<br>
+ Kepler = imported from ExoFOP-Kepler (fixed)<br>
+ K2 = imported from ExoFOP-K2 (fixed)<br>
+ Stellar = user-uploaded, and includes a row ID</p>
+</blockquote>
+<p>Required term:<br>
+target=[nnnnnnnn] TIC ID</p>
+<p>Sample call:<br>
+<a href="https://exofop.ipac.caltech.edu/tess/download_stellar.php?id=231663901">https://exofop.ipac.caltech.edu/tess/download_stellar.php?id=231663901</a></p>
 <p>__</p>
-<p>gototicid?target=[target_name]<br>
-Provides a redirect to the target overview page given the name of a target. If there are multiple TIC IDs that match to a planet name, then will provide a table to interactively select which TIC overview page to go to. An error is returned if there is no TIC found associated with that name.</p>
+<p>download_planet.php<br>
+Download all planet parameters for a single target in a pipe-delimited format.<br>
+Includes a column called 'Table' that indicates which source a parameter is from:</p>
+<blockquote><p>Exoplanet Archive = from confirmed planets on Exoplanet Archive<br>
+ TIC = from TESS Input Catalog<br>
+ TOI = from mission-provided TOIs<br>
+ Kepler = imported from ExoFOP-Kepler (fixed)<br>
+ K2 = imported from ExoFOP-K2 (fixed)<br>
+ Planet = user-uploaded, and includes a row ID</p>
+</blockquote>
+<p>Required term:<br>
+target=[nnnnnnnn] TIC ID</p>
 <p>Sample call:<br>
-<a href="https://exofop.ipac.caltech.edu/tess/gototicid.php?target=Kepler-633">https://exofop.ipac.caltech.edu/tess/gototicid.php?target=Kepler-633</a></p>
+<a href="https://exofop.ipac.caltech.edu/tess/download_stellar.php?id=231663901">https://exofop.ipac.caltech.edu/tess/download_stellar.php?id=231663901</a></p>
 
 </div>
 </div>
@@ -13227,7 +13320,7 @@ TIC ID, TOI, RA, Dec, TESS Mag, GAIA DR2, GAIA Mag, Distance (pc), Distance Err 
 output=[text|csv|pipe]<br>
 text is default option</p>
 <p>sort=[column]<br>
-Available columns to sort by: id (TIC ID), toi, ra, dec, pmra, pmdec, tmag, distance, separation (default search)</p>
+Available columns to sort by: id (TIC ID), toi, ra, dec, pmra, pmdec, tmag, distance, separation (default sort)</p>
 <p>Sample call:<br>
 <a href="https://exofop.ipac.caltech.edu/tess/download_nearbytarget.php?id=278683844&amp;output=csv&amp;sort=tmag">https://exofop.ipac.caltech.edu/tess/download_nearbytarget.php?id=278683844&amp;output=csv&amp;sort=tmag</a></p>
 
